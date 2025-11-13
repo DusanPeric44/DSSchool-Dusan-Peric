@@ -1,52 +1,46 @@
+import React, { Component } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { AboutStackNavigator } from "./StackNavigator";
 import BottomTabNavigator from "./TabNavigator";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import screensConfig from "../data/screens.json";
 
 const Drawer = createDrawerNavigator();
+const componentMap = { BottomTabNavigator, AboutStackNavigator };
 
-const DrawerNavigator = () => {
-  return (
-    <Drawer.Navigator
-      screenOptions={{
-        drawerActiveTintColor: "white",
-        drawerActiveBackgroundColor: "#FF6347",
-        drawerStyle: {
-          width: 250,
-        },
-      }}
-    >
-      <Drawer.Screen
-        name="Home"
-        component={BottomTabNavigator}
-        options={{
-          title: "Home",
-          drawerIcon: ({ focused, color, size }) => (
-            <MaterialCommunityIcons
-              name={focused ? "home" : "home-outline"}
-              size={22}
-              color={color}
-            />
-          ),
+class DrawerNavigator extends Component {
+  render() {
+    return (
+      <Drawer.Navigator
+        screenOptions={{
+          drawerActiveTintColor: "white",
+          drawerActiveBackgroundColor: "#FF6347",
+          drawerStyle: {
+            width: 250,
+          },
         }}
-      />
-      <Drawer.Screen
-        name="About"
-        component={AboutStackNavigator}
-        options={{
-          title: "Home",
-          drawerIcon: ({ focused, color, size }) => (
-            <MaterialCommunityIcons
-              name={focused ? "information" : "information-outline"}
-              size={22}
-              color={color}
-            />
-          ),
-        }}
-      />
-    </Drawer.Navigator>
-  );
-};
+      >
+        {screensConfig.map((screen) => (
+          <Drawer.Screen
+            key={screen.name}
+            name={screen.name}
+            component={componentMap[screen.componentKey]}
+            options={{
+              title: screen.title,
+              drawerIcon: ({ focused, color, size }) => (
+                <MaterialCommunityIcons
+                  name={focused ? screen.iconActive : screen.iconInactive}
+                  size={22}
+                  color={color}
+                />
+              ),
+            }}
+          />
+        ))}
+      </Drawer.Navigator>
+    );
+  }
+}
 
 export default DrawerNavigator;
 

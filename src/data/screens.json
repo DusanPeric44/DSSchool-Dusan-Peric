@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Home",
+    "title": "Home",
+    "componentKey": "BottomTabNavigator",
+    "iconActive": "home",
+    "iconInactive": "home-outline"
+  },
+  {
+    "name": "About",
+    "title": "About",
+    "componentKey": "AboutStackNavigator",
+    "iconActive": "information",
+    "iconInactive": "information-outline"
+  }
+]
