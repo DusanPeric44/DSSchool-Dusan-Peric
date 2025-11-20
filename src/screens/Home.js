@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import Swiper from "react-native-swiper";
+import Icon from "../components/Icon";
 
 const Home = ({ navigation }) => {
   return (
@@ -41,18 +42,36 @@ const Home = ({ navigation }) => {
           </View>
         </Swiper>
       </View>
+      <View style={styles.iconsContainer}>
+        <Icon name="cellphone" iconText="Iphone"></Icon>
+        <Icon name="android" iconText="Samsung"></Icon>
+        <Icon name="laptop" iconText="Laptop"></Icon>
+      </View>
+      <View style={styles.iconsContainer}>
+        <Icon name="tablet" iconText="Tablet"></Icon>
+        <Icon name="mouse" iconText="Mouse"></Icon>
+        <Icon name="keyboard-outline" iconText="Keyboard"></Icon>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  iconsContainer: {
+    width: "90%",
+    alignSelf: "center",
+    marginTop: 30,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
   container: {
     flex: 1,
+    width: "100%",
     backgroundColor: "#fff",
   },
 
   sliderContainer: {
-    width: "90%",
     height: 200,
     justifyContent: "center",
     alignItems: "center",
@@ -73,3 +92,15 @@ const styles = StyleSheet.create({
 });
 
 export default Home;
+
+// Easy:
+
+// Add color prop
+
+//M
+// Add size prop
+
+//H
+// Create a Home screen that displays a grid of Icon components.
+// The icons should be stored in an array of objects, where each object has name,
+// color, and size properties. Map over this array to render the Icon components.
