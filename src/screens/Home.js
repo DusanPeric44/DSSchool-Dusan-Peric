@@ -68,7 +68,11 @@ class Home extends React.Component {
             </Swiper>
           </View>
           <View style={styles.iconsContainer}>
-            <Icon name="cellphone" iconText="Iphone"></Icon>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("Ios")}
+            >
+              <Icon name="cellphone" iconText="Iphone"></Icon>
+            </TouchableOpacity>
             <Icon name="android" iconText="Samsung"></Icon>
             <Icon name="laptop" iconText="Laptop"></Icon>
           </View>

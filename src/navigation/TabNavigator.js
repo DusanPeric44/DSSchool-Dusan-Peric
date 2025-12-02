@@ -1,5 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MainStackNavigator, AboutStackNavigator } from "./StackNavigator";
+import {
+  MainStackNavigator,
+  AboutStackNavigator,
+  IosStackNavigator,
+} from "./StackNavigator";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
@@ -40,6 +44,16 @@ const BottomTabNavigator = () => {
               size={26}
               color={color}
             />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Ios"
+        component={IosStackNavigator}
+        options={{
+          tabBarLabel: "iOS",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="apple" size={26} color={color} />
           ),
         }}
       />

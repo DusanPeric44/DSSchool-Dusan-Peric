@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import About from "../screens/About";
+import Ios from "../screens/Ios";
 
 const Stack = createStackNavigator();
 
@@ -28,7 +29,15 @@ const AboutStackNavigator = ({ navigation }) => {
   );
 };
 
-export { MainStackNavigator, AboutStackNavigator };
+const IosStackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="iOS" component={Ios} />
+    </Stack.Navigator>
+  );
+};
+
+export { MainStackNavigator, AboutStackNavigator, IosStackNavigator };
 
 // Easy:
 
