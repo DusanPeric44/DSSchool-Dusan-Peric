@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import About from "../screens/About";
 import Ios from "../screens/Ios";
+import Android from "../screens/Android";
 
 const Stack = createStackNavigator();
 
@@ -37,7 +38,20 @@ const IosStackNavigator = () => {
   );
 };
 
-export { MainStackNavigator, AboutStackNavigator, IosStackNavigator };
+const AndroidStackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Android" component={Android} />
+    </Stack.Navigator>
+  );
+};
+
+export {
+  MainStackNavigator,
+  AboutStackNavigator,
+  IosStackNavigator,
+  AndroidStackNavigator,
+};
 
 // Easy:
 
