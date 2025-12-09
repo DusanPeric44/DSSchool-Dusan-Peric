@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Switch,
 } from "react-native";
-import data from "../data/data.json";
+import data from "../../data/products.json";
 import Item from "../components/Item";
 
 class Android extends React.Component {
